@@ -1,0 +1,51 @@
+<h2 class="row justify-content-center">Add a burger</h2>
+<div class="row justify-content-center">
+  <form class="create-form justify-content-center">
+    <div class="form-group">
+      <label for="ca">Burger Name:</label>
+      <input type="text" id="ca" name="name">
+      <span class="input-group-btn">
+        <button class="btn btn-default bg-light" id="submitBtn" type="submit">Add</button>
+      </span>
+    </div>
+  </form>
+</div>
+<div class="row justify-content-center">
+  <div class="col-lg-4">
+    <h1>Added burgers</h1>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
+      <li>
+        <div class="input-group mb-3 mx-auto">
+          <div class="p-2 border mr-5">{{burger_name}}</div>
+          <span class="input-group-btn">
+            <button class="btn btn-default bg-light devoured" type="submit">devoure</button>
+            <p class='burger_id'>{{id}}</p>
+
+          </span>
+        </div>
+      </li>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-lg-4">
+    <h1>Devoured burgers</h1>
+    <ul>
+      {{#each burgers}}
+      {{#if devoured}}
+      <li>
+        <div class="input-group mb-3 mx-auto">
+          <div class="p-2 border bg-light mr-5">{{burger_name}}</div>
+          <span class="input-group-btn">
+            <button class="btn btn-default bg-light delete" type="submit">delete</button>
+            <p class='burger_id'>{{id}}</p>
+          </span>
+        </div>
+      </li>
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
